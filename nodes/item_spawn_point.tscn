@@ -1,0 +1,40 @@
+[gd_scene load_steps=4 format=3 uid="uid://b7m2xplvp6l36"]
+
+[ext_resource type="Script" path="res://nodes/item_spawn_point.gd" id="1_hxrim"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tvknq"]
+normal = Vector2(-1, 0)
+
+[sub_resource type="Gradient" id="Gradient_djy2i"]
+colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ItemSpawnPoint" type="Area2D"]
+position = Vector2(216, 0)
+script = ExtResource("1_hxrim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("WorldBoundaryShape2D_tvknq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 1, 1, 0.313726)
+
+[node name="SpawnTarget" type="Node2D" parent="."]
+position = Vector2(-98, -140)
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="SpawnTarget"]
+randomness = 1.0
+emission_shape = 1
+emission_sphere_radius = 20.0
+gravity = Vector2(0, 0)
+color_ramp = SubResource("Gradient_djy2i")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
