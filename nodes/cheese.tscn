@@ -4,6 +4,7 @@
 
 [node name="Cheese" type="RigidBody2D"]
 mass = 0.001
+continuous_cd = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(3, -4, 8, -4, 8, 4, -8, 4, -8, 2)

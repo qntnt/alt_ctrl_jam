@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxwycg2mqpk4x"]
+[gd_scene load_steps=14 format=3 uid="uid://cxwycg2mqpk4x"]
 
 [ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
 [ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
 [ext_resource type="Script" path="res://nodes/input_controller.gd" id="6_780db"]
 [ext_resource type="Script" path="res://nodes/gameplay_area.gd" id="7_nuw8w"]
+[ext_resource type="Script" path="res://nodes/item_throw_controller.gd" id="8_5wxah"]
 
 [sub_resource type="Animation" id="Animation_c5f1u"]
 length = 0.8
@@ -180,6 +181,15 @@ position = Vector2(0, -95)
 shape = SubResource("RectangleShape2D_esbbn")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
+[node name="ItemThrowController" type="Node2D" parent="." node_paths=PackedStringArray("shoot_target")]
+script = ExtResource("8_5wxah")
+shoot_target = NodePath("..")
+shoot_speed = 3000.0
+
+[node name="SpawnPoint" type="Node2D" parent="ItemThrowController"]
+position = Vector2(322, -290)
+
+[connection signal="button_pressed" from="InputController" to="ItemThrowController" method="_on_input_controller_button_pressed"]
 [connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]
 [connection signal="right_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_right_hand_input_changed"]
 [connection signal="body_exited" from="GameplayArea" to="GameplayArea" method="_on_body_exited"]
