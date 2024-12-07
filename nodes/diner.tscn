@@ -1,13 +1,13 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7m2xplvp6l36"]
 
-[ext_resource type="Script" path="res://nodes/item_spawn_point.gd" id="1_hxrim"]
-[ext_resource type="Texture2D" uid="uid://cvvfexb0608e0" path="res://sprites/diners/head_back_1.png" id="2_irmoi"]
-[ext_resource type="Texture2D" uid="uid://buv1lrjolfvb8" path="res://sprites/diners/chair.png" id="3_7fvim"]
-[ext_resource type="Texture2D" uid="uid://rc0rkdaa5e05" path="res://sprites/diners/torso_1.png" id="3_b4eqh"]
-[ext_resource type="Texture2D" uid="uid://mrnwb7mue8aw" path="res://sprites/diners/hand.png" id="4_kl54v"]
-[ext_resource type="Texture2D" uid="uid://cddq83ex3xeyk" path="res://sprites/diners/legs_1.png" id="4_vh2ac"]
-[ext_resource type="Texture2D" uid="uid://buk0j4rf4m78x" path="res://sprites/diners/head_front_1.png" id="5_m31ei"]
-[ext_resource type="Texture2D" uid="uid://c2youfrgfv4nn" path="res://sprites/diners/face_1.png" id="7_n2sgo"]
+[ext_resource type="Script" path="res://nodes/diner.gd" id="1_12kp2"]
+[ext_resource type="Texture2D" uid="uid://cvvfexb0608e0" path="res://sprites/diners/head_back_1.png" id="2_hvucl"]
+[ext_resource type="Texture2D" uid="uid://cddq83ex3xeyk" path="res://sprites/diners/legs_1.png" id="3_3rkof"]
+[ext_resource type="Texture2D" uid="uid://rc0rkdaa5e05" path="res://sprites/diners/torso_1.png" id="4_fud08"]
+[ext_resource type="Texture2D" uid="uid://buk0j4rf4m78x" path="res://sprites/diners/head_front_1.png" id="5_pmpcx"]
+[ext_resource type="Texture2D" uid="uid://c2youfrgfv4nn" path="res://sprites/diners/face_1.png" id="6_fh3gr"]
+[ext_resource type="Texture2D" uid="uid://buv1lrjolfvb8" path="res://sprites/diners/chair.png" id="7_8kb8m"]
+[ext_resource type="Texture2D" uid="uid://mrnwb7mue8aw" path="res://sprites/diners/hand.png" id="8_l1msn"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tvknq"]
 normal = Vector2(-1, 0)
@@ -19,9 +19,10 @@ point_count = 3
 [sub_resource type="Gradient" id="Gradient_djy2i"]
 colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
-[node name="ItemSpawnPoint" type="Area2D"]
+[node name="Diner" type="Area2D"]
 z_index = -100
-script = ExtResource("1_hxrim")
+collision_layer = 0
+script = ExtResource("1_12kp2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_tvknq")
@@ -31,30 +32,30 @@ position = Vector2(7.5, -78.3333)
 
 [node name="HeadBack" type="Sprite2D" parent="BodySprites"]
 position = Vector2(1.5, -64.6667)
-texture = ExtResource("2_irmoi")
+texture = ExtResource("2_hvucl")
 
 [node name="Legs" type="Sprite2D" parent="BodySprites"]
 position = Vector2(1.5, 38.3333)
-texture = ExtResource("4_vh2ac")
+texture = ExtResource("3_3rkof")
 
 [node name="Torso" type="Sprite2D" parent="BodySprites"]
 modulate = Color(1, 0.486275, 1, 1)
 position = Vector2(1.5, -18.6667)
-texture = ExtResource("3_b4eqh")
+texture = ExtResource("4_fud08")
 
 [node name="HeadFront" type="Sprite2D" parent="BodySprites"]
 visible = false
 position = Vector2(1.5, -64.6667)
-texture = ExtResource("5_m31ei")
+texture = ExtResource("5_pmpcx")
 
 [node name="Face" type="Sprite2D" parent="BodySprites"]
 visible = false
 position = Vector2(1.5, -64.6667)
-texture = ExtResource("7_n2sgo")
+texture = ExtResource("6_fh3gr")
 
 [node name="Chair" type="Sprite2D" parent="BodySprites"]
 position = Vector2(1.5, 31.3333)
-texture = ExtResource("3_7fvim")
+texture = ExtResource("7_8kb8m")
 
 [node name="SpawnTarget" type="Node2D" parent="."]
 position = Vector2(5, -127)
@@ -72,6 +73,6 @@ hue_variation_max = 1.0
 
 [node name="Hand" type="Sprite2D" parent="SpawnTarget"]
 visible = false
-texture = ExtResource("4_kl54v")
+texture = ExtResource("8_l1msn")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

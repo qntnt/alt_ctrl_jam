@@ -59,8 +59,12 @@ func _ready() -> void:
 	legs_sprite.modulate = random_color()
 
 func spawn_item() -> void:
-	var item := ItemDB.instantiate_random_item()
-	NodeLocator.get_game_node().add_child(item)
+	var item: Node2D = null
+	if item_to_spawn:
+		item = item_to_spawn.instantiate()
+	else:
+		item = ItemDB.instantiate_random_item()
+	NodeLocator.get_game_node().add_child.call_deferred(item)
 	item.global_position = spawn_target.global_position
 	start_active_animation()
 
@@ -83,7 +87,7 @@ func random_color(blend: Color = Color.WHITE, amount: float = 0.75) -> Color:
 	).lerp(blend, amount)
 
 func _on_body_entered(body: Node2D) -> void:
-	if item_to_spawn == null || !(body is Robot):
+	if !body is Robot:
 		return
 	spawn_item()
 	

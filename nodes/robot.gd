@@ -7,6 +7,7 @@ extends CharacterBody2D
 @onready var tray := $Tray as Tray
 @onready var music_player := $MusicPlayer as AudioStreamPlayer
 @onready var gravity: Vector2 = ProjectSettings.get_setting("physics/2d/default_gravity_vector") * ProjectSettings.get_setting("physics/2d/default_gravity")
+@onready var animation_player := $Body/AnimationPlayer as AnimationPlayer
 	
 func _physics_process(delta: float) -> void:
 	velocity = velocity.move_toward(Vector2.RIGHT * move_speed + gravity, delta * move_acceleration)
@@ -16,4 +17,8 @@ func _physics_process(delta: float) -> void:
 		0.01,
 		2.0
 	)
+	if get_real_velocity().length() > 10:
+		animation_player.play('walk')
+	else:
+		animation_player.play('idle')
 	

@@ -11,6 +11,13 @@ var _items = {
 func instantiate_item(id: String) -> RigidBody2D:
 	var item = get_item_scene(id).instantiate() as RigidBody2D
 	item.continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY
+	item.can_sleep = false
+	item.collision_layer = 0
+	item.set_collision_layer_value(3, true)
+	item.collision_mask = 0
+	item.set_collision_mask_value(1, true)
+	item.set_collision_mask_value(2, true)
+	item.set_collision_mask_value(3, true)
 	return item
 	
 func instantiate_random_item() -> RigidBody2D:

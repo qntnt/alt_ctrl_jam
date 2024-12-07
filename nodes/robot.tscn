@@ -125,6 +125,7 @@ size = Vector2(94, 4)
 size = Vector2(1024, 512)
 
 [node name="Robot" type="CharacterBody2D"]
+collision_mask = 3
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_block_on_wall = false

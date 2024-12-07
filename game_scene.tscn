@@ -1,10 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://d2ty70dw7r0c3"]
+[gd_scene load_steps=7 format=3 uid="uid://d2ty70dw7r0c3"]
 
 [ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot.tscn" id="1_bimp3"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_r4g1l"]
-[ext_resource type="PackedScene" uid="uid://dlfeqmwhyjwnu" path="res://nodes/cheese.tscn" id="2_c0cpx"]
-[ext_resource type="PackedScene" uid="uid://b7m2xplvp6l36" path="res://nodes/item_spawn_point.tscn" id="5_k8cxy"]
 [ext_resource type="Texture2D" uid="uid://dha252vifu5g2" path="res://sprites/floor/floor.png" id="7_cc41g"]
+[ext_resource type="PackedScene" uid="uid://bixdt83d7rfg7" path="res://nodes/table.tscn" id="7_fg6p4"]
 [ext_resource type="PackedScene" uid="uid://cymuj54rtm5ua" path="res://nodes/bucket.tscn" id="9_68ip7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
@@ -34,47 +33,18 @@ offset_bottom = 40.0
 texture = ExtResource("7_cc41g")
 
 [node name="Bucket" parent="." instance=ExtResource("9_68ip7")]
-position = Vector2(3200, -4)
+position = Vector2(1530, -4)
 
 [node name="ScoreDisplay" type="Label" parent="."]
-offset_left = 3176.0
+offset_left = 1506.0
 offset_top = 6.0
-offset_right = 3225.0
+offset_right = 1555.0
 offset_bottom = 29.0
 text = "0"
 horizontal_alignment = 1
 
-[node name="ItemSpawnPoint" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(221, 0)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint2" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(339, 0)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint3" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(446, 0)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint4" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(549, 0)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint5" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(1628, -1)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint6" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(1746, -1)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint7" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(1853, -1)
-item_to_spawn = ExtResource("2_c0cpx")
-
-[node name="ItemSpawnPoint8" parent="." instance=ExtResource("5_k8cxy")]
-position = Vector2(1956, -1)
-item_to_spawn = ExtResource("2_c0cpx")
+[node name="Table" parent="." instance=ExtResource("7_fg6p4")]
+position = Vector2(210, 0)
 
 [connection signal="item_catch" from="Bucket" to="." method="_on_bucket_item_catch"]
 [connection signal="item_lost" from="Bucket" to="." method="_on_bucket_item_lost"]

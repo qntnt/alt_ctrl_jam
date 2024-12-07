@@ -1,0 +1,32 @@
+[gd_scene load_steps=4 format=3 uid="uid://bixdt83d7rfg7"]
+
+[ext_resource type="Script" path="res://nodes/table.gd" id="1_vub8g"]
+[ext_resource type="Texture2D" uid="uid://bjhax85cin7n8" path="res://sprites/table/table.png" id="2_tuwlt"]
+
+[sub_resource type="Curve" id="Curve_u8nep"]
+_data = [Vector2(0, 0), 0.0, 0.4, 0, 1, Vector2(0.5, 0.2), 0.0, 0.0, 0, 0, Vector2(0.76, 0.2), 0.0, 0.0, 0, 0, Vector2(1, 1), 3.33333, 0.0, 1, 0]
+point_count = 4
+metadata/_snap_enabled = true
+metadata/_snap_count = 50
+
+[node name="Table" type="Node2D"]
+script = ExtResource("1_vub8g")
+size_distribution = SubResource("Curve_u8nep")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+z_index = -101
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -96.0
+offset_right = 48.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_tuwlt")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
