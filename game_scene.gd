@@ -11,7 +11,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_bucket_item_catch() -> void:
 	score += 1
 	score_display.text = str(score)
