@@ -8,6 +8,7 @@
 
 [sub_resource type="Animation" id="Animation_il4hy"]
 length = 0.8
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -134,11 +135,12 @@ zoom = Vector2(2, 2)
 libraries = {
 "": SubResource("AnimationLibrary_eqex0")
 }
+autoplay = "walk"
 
 [node name="Sprite2D" type="Sprite2D" parent="Body"]
 texture = ExtResource("4_0u65a")
 region_enabled = true
-region_rect = Rect2(512, 0, 64, 56)
+region_rect = Rect2(0, 0, 64, 56)
 
 [node name="Tray" type="CharacterBody2D" parent="."]
 position = Vector2(0, -32)
@@ -151,7 +153,7 @@ shape = SubResource("RectangleShape2D_1ngyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Tray"]
 texture = ExtResource("4_behex")
-region_rect = Rect2(512, 0, 64, 56)
+region_rect = Rect2(0, 0, 64, 56)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -31, -13, -31, 0)
