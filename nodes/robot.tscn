@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://cxwycg2mqpk4x"]
+[gd_scene load_steps=11 format=3 uid="uid://cxwycg2mqpk4x"]
 
 [ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
 [ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
 [ext_resource type="Texture2D" uid="uid://dt7naf5bpnsh1" path="res://sprites/robot/robot_body.png" id="4_0u65a"]
 [ext_resource type="Texture2D" uid="uid://cqm386iyj4u1f" path="res://sprites/robot/tray.png" id="4_behex"]
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
+[ext_resource type="Script" path="res://nodes/input_controller.gd" id="6_780db"]
 
 [sub_resource type="Animation" id="Animation_il4hy"]
 length = 0.8
@@ -162,5 +163,10 @@ polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -
 stream = ExtResource("5_2oyu0")
 volume_db = -12.0
 pitch_scale = 0.01
-autoplay = true
 max_polyphony = 2
+
+[node name="InputController" type="Node" parent="."]
+script = ExtResource("6_780db")
+
+[connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]
+[connection signal="right_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_right_hand_input_changed"]
