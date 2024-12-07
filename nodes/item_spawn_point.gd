@@ -1,17 +1,23 @@
 extends Area2D
 
 @export var item_to_spawn: PackedScene
-@export var shoot_target: Node2D
 
 @onready var spawn_target := $SpawnTarget as Node2D
+@onready var animation_player := $Sprite/AnimationPlayer as AnimationPlayer
 
+func _ready() -> void:
+	animation_player.play('idle')
+
+func spawn_item() -> void:
+	var item := ItemDB.instantiate_random_item()
+	add_child.call_deferred(item)
+	item.global_position = spawn_target.global_position
+	animation_player.play('active')
+	await get_tree().create_timer(0.5).timeout
+	animation_player.play('idle')
 
 func _on_body_entered(body: Node2D) -> void:
-	print(body)
-	if item_to_spawn == null || body == self:
+	if item_to_spawn == null || !(body is Robot):
 		return
-	var item := item_to_spawn.instantiate() as RigidBody2D
-	add_child(item)
-	item.top_level = true
-	item.global_position = spawn_target.global_position
+	spawn_item()
 	

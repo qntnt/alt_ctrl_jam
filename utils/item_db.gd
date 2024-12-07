@@ -13,6 +13,10 @@ func instantiate_item(id: String) -> RigidBody2D:
 	item.top_level = true
 	item.continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY
 	return item
+	
+func instantiate_random_item() -> RigidBody2D:
+	return instantiate_item(_items.keys().pick_random())
+	
 
 func get_item_scene(id: String) -> PackedScene:
 	return _items.get(id, null)

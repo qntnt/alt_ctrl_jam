@@ -1,3 +1,4 @@
+class_name Robot
 extends CharacterBody2D
 
 @export var move_acceleration := 1000.0

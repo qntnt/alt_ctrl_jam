@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dlfeqmwhyjwnu" path="res://nodes/cheese.tscn" id="2_c0cpx"]
 [ext_resource type="PackedScene" uid="uid://b7m2xplvp6l36" path="res://nodes/item_spawn_point.tscn" id="5_k8cxy"]
 [ext_resource type="Texture2D" uid="uid://dha252vifu5g2" path="res://sprites/floor/floor.png" id="7_cc41g"]
-[ext_resource type="PackedScene" uid="uid://bh2iufx45jxyx" path="res://nodes/bucket.tscn" id="9_68ip7"]
+[ext_resource type="PackedScene" uid="uid://cymuj54rtm5ua" path="res://nodes/bucket.tscn" id="9_68ip7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
 
@@ -34,17 +34,30 @@ offset_bottom = 40.0
 texture = ExtResource("7_cc41g")
 
 [node name="Bucket" parent="." instance=ExtResource("9_68ip7")]
-position = Vector2(716, -4)
+position = Vector2(3200, -4)
 
 [node name="ScoreDisplay" type="Label" parent="."]
-offset_left = 692.0
+offset_left = 3176.0
 offset_top = 6.0
-offset_right = 741.0
+offset_right = 3225.0
 offset_bottom = 29.0
 text = "0"
 horizontal_alignment = 1
 
 [node name="ItemSpawnPoint" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(221, 0)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint2" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(339, 0)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint3" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(446, 0)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint4" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(549, 0)
 item_to_spawn = ExtResource("2_c0cpx")
 
 [connection signal="item_catch" from="Bucket" to="." method="_on_bucket_item_catch"]

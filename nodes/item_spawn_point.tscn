@@ -1,34 +1,98 @@
-[gd_scene load_steps=4 format=3 uid="uid://b7m2xplvp6l36"]
+[gd_scene load_steps=8 format=3 uid="uid://b7m2xplvp6l36"]
 
 [ext_resource type="Script" path="res://nodes/item_spawn_point.gd" id="1_hxrim"]
+[ext_resource type="Texture2D" uid="uid://cgsko4pdxiybu" path="res://sprites/diners/diner_1.png" id="2_hhhhl"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tvknq"]
 normal = Vector2(-1, 0)
+
+[sub_resource type="Animation" id="Animation_xt13v"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c35wi"]
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Rect2(64, 0, 64, 160)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite/Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rliq0"]
+_data = {
+"active": SubResource("Animation_c35wi"),
+"idle": SubResource("Animation_xt13v")
+}
 
 [sub_resource type="Gradient" id="Gradient_djy2i"]
 colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="ItemSpawnPoint" type="Area2D"]
-position = Vector2(216, 0)
+z_index = -100
 script = ExtResource("1_hxrim")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_tvknq")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -40.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 1, 1, 0.313726)
+[node name="Sprite" type="Node2D" parent="."]
+position = Vector2(9, -80)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
+reset_on_save = false
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_rliq0")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
+texture = ExtResource("2_hhhhl")
+region_enabled = true
+region_rect = Rect2(0, 0, 64, 160)
 
 [node name="SpawnTarget" type="Node2D" parent="."]
-position = Vector2(-98, -140)
+position = Vector2(5, -127)
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="SpawnTarget"]
 randomness = 1.0
