@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cnq2i2qywdsfh"]
+
+[ext_resource type="Texture2D" uid="uid://clvpdfbqyrb5" path="res://sprites/items/large_plate.aseprite" id="1_7phmq"]
+
+[node name="LargePlate" type="RigidBody2D"]
+mass = 0.001
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(23, -4, 23, -1, 18, 4, -18, 4, -23, -1, -23, -4, -19, -4, -16, -1, 16, -1, 19, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_7phmq")

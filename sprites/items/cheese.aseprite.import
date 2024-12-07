@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://dpe0jbtqjk4bb"
+path="res://.godot/imported/cheese.aseprite-697ffa0ca77756058b2de6a9b5be0afe.res"
+
+[deps]
+
+source_file="res://sprites/items/cheese.aseprite"
+dest_files=["res://.godot/imported/cheese.aseprite-697ffa0ca77756058b2de6a9b5be0afe.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxwycg2mqpk4x"]
+
+[ext_resource type="SpriteFrames" uid="uid://c0nk6xk7fo7n4" path="res://sprites/robot/robot_body.aseprite" id="1_dpkrn"]
+[ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
+[ext_resource type="Texture2D" uid="uid://cs0cmfsuyqsl8" path="res://sprites/robot/tray.aseprite" id="2_wl2wq"]
+[ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
+[ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngyj"]
+size = Vector2(94, 4)
+
+[node name="Robot" type="CharacterBody2D"]
+floor_stop_on_slope = false
+floor_constant_speed = true
+floor_block_on_wall = false
+safe_margin = 0.16
+script = ExtResource("1_sd8df")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -96)
+zoom = Vector2(2, 2)
+
+[node name="Body" type="Node2D" parent="."]
+
+[node name="BodySprite" type="AnimatedSprite2D" parent="Body"]
+sprite_frames = ExtResource("1_dpkrn")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="Tray" type="CharacterBody2D" parent="."]
+position = Vector2(0, -32)
+motion_mode = 1
+script = ExtResource("3_ke7y6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Tray"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_1ngyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="Tray"]
+texture = ExtResource("2_wl2wq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -31, -13, -31, 0)
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_2oyu0")
+volume_db = -12.0
+pitch_scale = 0.01
+autoplay = true
+max_polyphony = 2

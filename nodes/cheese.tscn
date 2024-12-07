@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://dlfeqmwhyjwnu"]
+
+[ext_resource type="Texture2D" uid="uid://dpe0jbtqjk4bb" path="res://sprites/items/cheese.aseprite" id="1_5yyxt"]
+
+[node name="Cheese" type="RigidBody2D"]
+mass = 0.001
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(3, -4, 8, -4, 8, 4, -8, 4, -8, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_5yyxt")

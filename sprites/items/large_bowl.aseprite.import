@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://bxais1ibylc2p"
+path="res://.godot/imported/large_bowl.aseprite-3372773cdbb723ce1f934abfa7a30527.res"
+
+[deps]
+
+source_file="res://sprites/items/large_bowl.aseprite"
+dest_files=["res://.godot/imported/large_bowl.aseprite-3372773cdbb723ce1f934abfa7a30527.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

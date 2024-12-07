@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://p56wc7pjgsf6"
+path="res://.godot/imported/mug.aseprite-e59ecb06949d65c9a83a065598f9ea5a.res"
+
+[deps]
+
+source_file="res://sprites/items/mug.aseprite"
+dest_files=["res://.godot/imported/mug.aseprite-e59ecb06949d65c9a83a065598f9ea5a.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

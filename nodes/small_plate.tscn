@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cpja4tyge68mq"]
+
+[ext_resource type="Texture2D" uid="uid://dtlguxt67h7xa" path="res://sprites/items/small_plate.aseprite" id="1_awbdp"]
+
+[node name="SmallPlate" type="RigidBody2D"]
+mass = 0.001
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(15, -4, 15, -1, 10, 4, -10, 4, -15, -1, -15, -4, -11, -4, -8, -1, 8, -1, 11, -4)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_awbdp")

@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://clvpdfbqyrb5"
+path="res://.godot/imported/large_plate.aseprite-d5930086572235e8f370521f8192d120.res"
+
+[deps]
+
+source_file="res://sprites/items/large_plate.aseprite"
+dest_files=["res://.godot/imported/large_plate.aseprite-d5930086572235e8f370521f8192d120.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false

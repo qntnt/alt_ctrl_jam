@@ -1,0 +1,49 @@
+[gd_scene load_steps=9 format=3 uid="uid://d2ty70dw7r0c3"]
+
+[ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot.tscn" id="1_bimp3"]
+[ext_resource type="PackedScene" uid="uid://dlfeqmwhyjwnu" path="res://nodes/cheese.tscn" id="2_c0cpx"]
+[ext_resource type="PackedScene" uid="uid://csjidqy8eo5q2" path="res://nodes/large_bowl.tscn" id="3_jmr3u"]
+[ext_resource type="PackedScene" uid="uid://cpja4tyge68mq" path="res://nodes/small_plate.tscn" id="4_dwflq"]
+[ext_resource type="PackedScene" uid="uid://cnq2i2qywdsfh" path="res://nodes/large_plate.tscn" id="5_n5ru3"]
+[ext_resource type="PackedScene" uid="uid://cvmi0uldnsian" path="res://nodes/mug.tscn" id="6_pu6m2"]
+[ext_resource type="Texture2D" uid="uid://6rj1bjfvxl7y" path="res://sprites/floor/floor.aseprite" id="7_v3sew"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
+
+[node name="Node2D" type="Node2D"]
+y_sort_enabled = true
+
+[node name="Floor" type="StaticBody2D" parent="."]
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+shape = SubResource("WorldBoundaryShape2D_kqn6a")
+
+[node name="Robot" parent="." instance=ExtResource("1_bimp3")]
+position = Vector2(0, -29)
+platform_on_leave = 2
+
+[node name="Cheese" parent="." instance=ExtResource("2_c0cpx")]
+position = Vector2(18, -103)
+
+[node name="LargeBowl" parent="." instance=ExtResource("3_jmr3u")]
+position = Vector2(19, -78)
+
+[node name="SmallPlate" parent="." instance=ExtResource("4_dwflq")]
+position = Vector2(-14, -92)
+
+[node name="LargePlate" parent="." instance=ExtResource("5_n5ru3")]
+position = Vector2(10, -66)
+
+[node name="Mug" parent="." instance=ExtResource("6_pu6m2")]
+position = Vector2(-27, -74)
+
+[node name="Parallax2D" type="Parallax2D" parent="."]
+repeat_size = Vector2(48, 0)
+repeat_times = 48
+
+[node name="TextureRect" type="TextureRect" parent="Parallax2D"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("7_v3sew")

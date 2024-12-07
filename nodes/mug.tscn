@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvmi0uldnsian"]
+
+[ext_resource type="Texture2D" uid="uid://p56wc7pjgsf6" path="res://sprites/items/mug.aseprite" id="1_wkykc"]
+
+[node name="Mug" type="RigidBody2D"]
+mass = 0.001
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -4)
+polygon = PackedVector2Array(8, -4, 8, 4, 4, 8, -8, 8, -8, -8, 4, -8)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -4)
+texture = ExtResource("1_wkykc")

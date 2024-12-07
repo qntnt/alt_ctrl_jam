@@ -1,0 +1,16 @@
+[remap]
+
+importer="aseprite_wizard.plugin.static-texture"
+type="AtlasTexture"
+uid="uid://cosjxm4itjomf"
+path="res://.godot/imported/plate.aseprite-153f215218dbb67e608dcdd944bc49a0.res"
+
+[deps]
+
+source_file="res://sprites/items/plate.aseprite"
+dest_files=["res://.godot/imported/plate.aseprite-153f215218dbb67e608dcdd944bc49a0.res"]
+
+[params]
+
+exclude_layers_pattern=""
+only_visible_layers=false
