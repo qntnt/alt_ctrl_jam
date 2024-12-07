@@ -178,6 +178,7 @@ script = ExtResource("7_nuw8w")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayArea"]
 position = Vector2(0, -95)
 shape = SubResource("RectangleShape2D_esbbn")
+debug_color = Color(0, 0.6, 0.701961, 0)
 
 [connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]
 [connection signal="right_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_right_hand_input_changed"]
