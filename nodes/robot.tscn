@@ -1,10 +1,118 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxwycg2mqpk4x"]
+[gd_scene load_steps=10 format=3 uid="uid://cxwycg2mqpk4x"]
 
-[ext_resource type="SpriteFrames" uid="uid://c0nk6xk7fo7n4" path="res://sprites/robot/robot_body.aseprite" id="1_dpkrn"]
 [ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
-[ext_resource type="Texture2D" uid="uid://cs0cmfsuyqsl8" path="res://sprites/robot/tray.aseprite" id="2_wl2wq"]
 [ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
+[ext_resource type="Texture2D" uid="uid://dt7naf5bpnsh1" path="res://sprites/robot/robot_body.png" id="4_0u65a"]
+[ext_resource type="Texture2D" uid="uid://cqm386iyj4u1f" path="res://sprites/robot/tray.png" id="4_behex"]
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
+
+[sub_resource type="Animation" id="Animation_il4hy"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Tray/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 56), Rect2(64, 0, 64, 56), Rect2(128, 0, 64, 56), Rect2(192, 0, 64, 56), Rect2(256, 0, 64, 56), Rect2(320, 0, 64, 56), Rect2(384, 0, 64, 56), Rect2(448, 0, 64, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Tray/Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(0, 0, 64, 56), Rect2(64, 0, 64, 56), Rect2(128, 0, 64, 56), Rect2(192, 0, 64, 56), Rect2(256, 0, 64, 56), Rect2(320, 0, 64, 56), Rect2(384, 0, 64, 56), Rect2(448, 0, 64, 56)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_c5f1u"]
+length = 0.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../Tray/Sprite2D:region_rect")
+tracks/0/interp = 0
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(512, 0, 64, 56), Rect2(576, 0, 64, 56), Rect2(640, 0, 64, 56), Rect2(704, 0, 64, 56), Rect2(768, 0, 64, 56), Rect2(832, 0, 64, 56), Rect2(896, 0, 64, 56), Rect2(960, 0, 64, 56)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Tray/Sprite2D:offset")
+tracks/1/interp = 0
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:region_rect")
+tracks/2/interp = 0
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Rect2(512, 0, 64, 56), Rect2(576, 0, 64, 56), Rect2(640, 0, 64, 56), Rect2(704, 0, 64, 56), Rect2(768, 0, 64, 56), Rect2(832, 0, 64, 56), Rect2(896, 0, 64, 56), Rect2(960, 0, 64, 56)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_eqex0"]
+_data = {
+"idle": SubResource("Animation_c5f1u"),
+"walk": SubResource("Animation_il4hy")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngyj"]
 size = Vector2(94, 4)
@@ -22,10 +130,15 @@ zoom = Vector2(2, 2)
 
 [node name="Body" type="Node2D" parent="."]
 
-[node name="BodySprite" type="AnimatedSprite2D" parent="Body"]
-sprite_frames = ExtResource("1_dpkrn")
-animation = &"walk"
-autoplay = "walk"
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
+libraries = {
+"": SubResource("AnimationLibrary_eqex0")
+}
+
+[node name="Sprite2D" type="Sprite2D" parent="Body"]
+texture = ExtResource("4_0u65a")
+region_enabled = true
+region_rect = Rect2(512, 0, 64, 56)
 
 [node name="Tray" type="CharacterBody2D" parent="."]
 position = Vector2(0, -32)
@@ -37,7 +150,8 @@ position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_1ngyj")
 
 [node name="Sprite2D" type="Sprite2D" parent="Tray"]
-texture = ExtResource("2_wl2wq")
+texture = ExtResource("4_behex")
+region_rect = Rect2(512, 0, 64, 56)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -31, -13, -31, 0)

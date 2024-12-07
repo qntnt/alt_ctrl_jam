@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://csjidqy8eo5q2"]
 
-[ext_resource type="Texture2D" uid="uid://bxais1ibylc2p" path="res://sprites/items/large_bowl.aseprite" id="1_ccec7"]
+[ext_resource type="Texture2D" uid="uid://chi80ycu8f86j" path="res://sprites/items/large_bowl.png" id="1_lfw0j"]
 
 [node name="LargeBowl" type="RigidBody2D"]
 mass = 0.001
@@ -11,4 +11,4 @@ polygon = PackedVector2Array(16, -6, 16, 0, 8, 6, -8, 6, -16, 0, -16, -6, -11, -
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("1_ccec7")
+texture = ExtResource("1_lfw0j")
