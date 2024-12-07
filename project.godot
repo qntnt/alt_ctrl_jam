@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 ItemDB="*res://utils/item_db.gd"
+NodeLocator="*res://utils/node_locator.gd"
 
 [display]
 
@@ -31,6 +32,10 @@ movie_writer/fps=30
 [editor_plugins]
 
 enabled=PackedStringArray("res://addons/aseprite_importer/plugin.cfg")
+
+[global_group]
+
+root="Root node for scene"
 
 [input]
 

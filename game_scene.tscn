@@ -9,7 +9,7 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
 
-[node name="Game" type="Node2D"]
+[node name="Game" type="Node2D" groups=["root"]]
 y_sort_enabled = true
 script = ExtResource("1_r4g1l")
 
@@ -58,6 +58,22 @@ item_to_spawn = ExtResource("2_c0cpx")
 
 [node name="ItemSpawnPoint4" parent="." instance=ExtResource("5_k8cxy")]
 position = Vector2(549, 0)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint5" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(1628, -1)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint6" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(1746, -1)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint7" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(1853, -1)
+item_to_spawn = ExtResource("2_c0cpx")
+
+[node name="ItemSpawnPoint8" parent="." instance=ExtResource("5_k8cxy")]
+position = Vector2(1956, -1)
 item_to_spawn = ExtResource("2_c0cpx")
 
 [connection signal="item_catch" from="Bucket" to="." method="_on_bucket_item_catch"]

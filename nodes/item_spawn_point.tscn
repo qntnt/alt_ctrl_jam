@@ -1,73 +1,23 @@
-[gd_scene load_steps=8 format=3 uid="uid://b7m2xplvp6l36"]
+[gd_scene load_steps=12 format=3 uid="uid://b7m2xplvp6l36"]
 
 [ext_resource type="Script" path="res://nodes/item_spawn_point.gd" id="1_hxrim"]
-[ext_resource type="Texture2D" uid="uid://cgsko4pdxiybu" path="res://sprites/diners/diner_1.png" id="2_hhhhl"]
+[ext_resource type="Texture2D" uid="uid://cvvfexb0608e0" path="res://sprites/diners/head_back_1.png" id="2_irmoi"]
+[ext_resource type="Texture2D" uid="uid://buv1lrjolfvb8" path="res://sprites/diners/chair.png" id="3_7fvim"]
+[ext_resource type="Texture2D" uid="uid://rc0rkdaa5e05" path="res://sprites/diners/torso_1.png" id="3_b4eqh"]
+[ext_resource type="Texture2D" uid="uid://mrnwb7mue8aw" path="res://sprites/diners/hand.png" id="4_kl54v"]
+[ext_resource type="Texture2D" uid="uid://cddq83ex3xeyk" path="res://sprites/diners/legs_1.png" id="4_vh2ac"]
+[ext_resource type="Texture2D" uid="uid://buk0j4rf4m78x" path="res://sprites/diners/head_front_1.png" id="5_m31ei"]
+[ext_resource type="Texture2D" uid="uid://c2youfrgfv4nn" path="res://sprites/diners/face_1.png" id="7_n2sgo"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_tvknq"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="Animation" id="Animation_xt13v"]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Sprite2D:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(0, 0, 64, 160)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Sprite2D:offset")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_c35wi"]
-length = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite/Sprite2D:region_rect")
-tracks/0/interp = 0
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Rect2(64, 0, 64, 160)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite/Sprite2D:offset")
-tracks/1/interp = 0
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_rliq0"]
-_data = {
-"active": SubResource("Animation_c35wi"),
-"idle": SubResource("Animation_xt13v")
-}
+[sub_resource type="Curve" id="Curve_2kyvb"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.103352, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
 
 [sub_resource type="Gradient" id="Gradient_djy2i"]
-colors = PackedColorArray(0, 1, 1, 1, 1, 1, 1, 0)
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 
 [node name="ItemSpawnPoint" type="Area2D"]
 z_index = -100
@@ -76,20 +26,35 @@ script = ExtResource("1_hxrim")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("WorldBoundaryShape2D_tvknq")
 
-[node name="Sprite" type="Node2D" parent="."]
-position = Vector2(9, -80)
+[node name="BodySprites" type="Node2D" parent="."]
+position = Vector2(7.5, -78.3333)
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
-reset_on_save = false
-root_node = NodePath("../..")
-libraries = {
-"": SubResource("AnimationLibrary_rliq0")
-}
+[node name="HeadBack" type="Sprite2D" parent="BodySprites"]
+position = Vector2(1.5, -64.6667)
+texture = ExtResource("2_irmoi")
 
-[node name="Sprite2D" type="Sprite2D" parent="Sprite"]
-texture = ExtResource("2_hhhhl")
-region_enabled = true
-region_rect = Rect2(0, 0, 64, 160)
+[node name="Legs" type="Sprite2D" parent="BodySprites"]
+position = Vector2(1.5, 38.3333)
+texture = ExtResource("4_vh2ac")
+
+[node name="Torso" type="Sprite2D" parent="BodySprites"]
+modulate = Color(1, 0.486275, 1, 1)
+position = Vector2(1.5, -18.6667)
+texture = ExtResource("3_b4eqh")
+
+[node name="HeadFront" type="Sprite2D" parent="BodySprites"]
+visible = false
+position = Vector2(1.5, -64.6667)
+texture = ExtResource("5_m31ei")
+
+[node name="Face" type="Sprite2D" parent="BodySprites"]
+visible = false
+position = Vector2(1.5, -64.6667)
+texture = ExtResource("7_n2sgo")
+
+[node name="Chair" type="Sprite2D" parent="BodySprites"]
+position = Vector2(1.5, 31.3333)
+texture = ExtResource("3_7fvim")
 
 [node name="SpawnTarget" type="Node2D" parent="."]
 position = Vector2(5, -127)
@@ -99,6 +64,14 @@ randomness = 1.0
 emission_shape = 1
 emission_sphere_radius = 20.0
 gravity = Vector2(0, 0)
+scale_amount_max = 4.0
+scale_amount_curve = SubResource("Curve_2kyvb")
+color = Color(0.972743, 0.458937, 0, 1)
 color_ramp = SubResource("Gradient_djy2i")
+hue_variation_max = 1.0
+
+[node name="Hand" type="Sprite2D" parent="SpawnTarget"]
+visible = false
+texture = ExtResource("4_kl54v")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
