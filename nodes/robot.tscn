@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxwycg2mqpk4x"]
+[gd_scene load_steps=13 format=3 uid="uid://cxwycg2mqpk4x"]
 
 [ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
 [ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://cqm386iyj4u1f" path="res://sprites/robot/tray.png" id="4_behex"]
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
 [ext_resource type="Script" path="res://nodes/input_controller.gd" id="6_780db"]
+[ext_resource type="Script" path="res://nodes/gameplay_area.gd" id="7_nuw8w"]
 
 [sub_resource type="Animation" id="Animation_il4hy"]
 length = 0.8
@@ -119,6 +120,9 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1ngyj"]
 size = Vector2(94, 4)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_esbbn"]
+size = Vector2(1024, 512)
+
 [node name="Robot" type="CharacterBody2D"]
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -168,5 +172,13 @@ max_polyphony = 2
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("6_780db")
 
+[node name="GameplayArea" type="Area2D" parent="."]
+script = ExtResource("7_nuw8w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayArea"]
+position = Vector2(0, -95)
+shape = SubResource("RectangleShape2D_esbbn")
+
 [connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]
 [connection signal="right_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_right_hand_input_changed"]
+[connection signal="body_exited" from="GameplayArea" to="GameplayArea" method="_on_body_exited"]

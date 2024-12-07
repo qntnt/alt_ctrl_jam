@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://d2ty70dw7r0c3"]
+[gd_scene load_steps=10 format=3 uid="uid://d2ty70dw7r0c3"]
 
 [ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot.tscn" id="1_bimp3"]
+[ext_resource type="Script" path="res://game_scene.gd" id="1_r4g1l"]
 [ext_resource type="PackedScene" uid="uid://dlfeqmwhyjwnu" path="res://nodes/cheese.tscn" id="2_c0cpx"]
 [ext_resource type="PackedScene" uid="uid://csjidqy8eo5q2" path="res://nodes/large_bowl.tscn" id="3_jmr3u"]
 [ext_resource type="PackedScene" uid="uid://cpja4tyge68mq" path="res://nodes/small_plate.tscn" id="4_dwflq"]
@@ -10,8 +11,9 @@
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Game" type="Node2D"]
 y_sort_enabled = true
+script = ExtResource("1_r4g1l")
 
 [node name="Floor" type="StaticBody2D" parent="."]
 collision_layer = 3
