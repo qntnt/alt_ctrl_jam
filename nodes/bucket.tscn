@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bh2iufx45jxyx"]
+[gd_scene load_steps=3 format=3 uid="uid://cymuj54rtm5ua"]
 
 [ext_resource type="Script" path="res://nodes/bucket.gd" id="1_5ksk7"]
+[ext_resource type="Texture2D" uid="uid://iapo66hbu0ph" path="res://sprites/bucket/bucket.png" id="2_xyysp"]
 
 [node name="Bucket" type="StaticBody2D"]
 script = ExtResource("1_5ksk7")
@@ -12,6 +13,10 @@ polygon = PackedVector2Array(0, 0, 8, 32, 56, 32, 64, 0, 56, 0, 48, 24, 16, 24, 
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interior"]
 polygon = PackedVector2Array(8, 0, 16, 24, 48, 24, 56, 0)
+
+[node name="Bucket" type="Sprite2D" parent="."]
+position = Vector2(32, 16)
+texture = ExtResource("2_xyysp")
 
 [connection signal="body_entered" from="interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="interior" to="." method="_on_interior_body_exited"]
