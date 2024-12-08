@@ -40,12 +40,13 @@ func _start_countdown() -> void:
 func _tick() -> void:
 	if destroying:
 		return
-	if count <= 1:
+	if count < 1:
 		destroy()
-	countdown_label.text = str(count)
-	await get_tree().create_timer(1.0).timeout
-	count -= 1
-	await _tick()
+	else:
+		countdown_label.text = str(count)
+		await get_tree().create_timer(1.0).timeout
+		count -= 1
+		await _tick()
 
 func destroy() -> void:
 	destroying = true
