@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://chi80ycu8f86j" path="res://sprites/items/large_bowl.png" id="1_v1crq"]
 
 [node name="LargeBowl" type="RigidBody2D"]
-mass = 0.001
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -4)

@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://drtrbb1fgkfy8" path="res://sprites/items/cheese.png" id="1_fbbjb"]
 
 [node name="Cheese" type="RigidBody2D"]
-mass = 0.001
 continuous_cd = 1
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]

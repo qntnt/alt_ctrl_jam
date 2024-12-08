@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://b2n0dgdrucjpg" path="res://sprites/items/small_plate.png" id="1_pw2y6"]
 
 [node name="SmallPlate" type="RigidBody2D"]
-mass = 0.001
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -4)

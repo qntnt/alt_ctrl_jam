@@ -126,7 +126,7 @@ size = Vector2(1024, 512)
 
 [node name="Robot" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 7
 floor_stop_on_slope = false
 floor_constant_speed = true
 floor_block_on_wall = false
@@ -194,7 +194,7 @@ shoot_target = NodePath("..")
 shoot_speed = 3000.0
 
 [node name="SpawnPoint" type="Node2D" parent="ItemThrowController"]
-position = Vector2(0, -290)
+position = Vector2(332, -290)
 
 [node name="NextSectionSpawnPoint" type="Node2D" parent="."]
 position = Vector2(600, 0)

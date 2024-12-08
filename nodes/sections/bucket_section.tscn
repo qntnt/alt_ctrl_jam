@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://bdt0aedejwrjx"]
 
-[ext_resource type="Script" path="res://nodes/sections/base_section.gd" id="1_8672s"]
+[ext_resource type="Script" path="res://nodes/sections/bucket_section.gd" id="1_4pl2n"]
 [ext_resource type="PackedScene" uid="uid://cymuj54rtm5ua" path="res://nodes/bucket/bucket.tscn" id="2_n2vy2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3lg7k"]
@@ -9,7 +9,7 @@ size = Vector2(160, 160)
 [node name="BucketSection" type="Area2D"]
 collision_layer = 16
 collision_mask = 8
-script = ExtResource("1_8672s")
+script = ExtResource("1_4pl2n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -80)
@@ -19,3 +19,5 @@ shape = SubResource("RectangleShape2D_3lg7k")
 position = Vector2(0, -4)
 
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="item_catch" from="Bucket" to="." method="_on_bucket_item_catch"]
+[connection signal="item_lost" from="Bucket" to="." method="_on_bucket_item_lost"]

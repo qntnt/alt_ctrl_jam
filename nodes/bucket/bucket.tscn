@@ -16,6 +16,7 @@ polygon = PackedVector2Array(0, 0, 8, 32, 56, 32, 64, 0, 56, 0, 48, 24, 16, 24, 
 position = Vector2(-32, -28)
 collision_layer = 0
 collision_mask = 4
+monitorable = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="interior"]
 polygon = PackedVector2Array(8, 0, 16, 24, 48, 24, 56, 0)

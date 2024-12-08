@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://ds6imvwttaurk" path="res://sprites/items/mug.png" id="1_4ydsv"]
 
 [node name="Mug" type="RigidBody2D"]
-mass = 0.001
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -4)
