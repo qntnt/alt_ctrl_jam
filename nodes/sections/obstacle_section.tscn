@@ -8,7 +8,7 @@ size = Vector2(300, 100)
 
 [node name="ObstacleSection" instance=ExtResource("1_xxam8")]
 script = ExtResource("2_3msoj")
-num_obstacles = 6
+num_obstacles = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
 position = Vector2(150, -50)

@@ -27,6 +27,8 @@ var _current_section: BaseSection
 var _next_section: BaseSection
 var _next_section_id := 0
 
+var frozen := true
+
 func _ready() -> void:
 	_spawn_next_section()
 	await get_tree().process_frame
@@ -53,7 +55,13 @@ func _on_section_done() -> void:
 	_spawn_next_section()
 
 func _physics_process(delta: float) -> void:
-	velocity = velocity.move_toward(Vector2.RIGHT * move_speed + gravity, delta * move_acceleration)
+	if frozen:
+		velocity = Vector2.ZERO
+	else:
+		var forward := Vector2.RIGHT * move_speed
+		if get_parent().score > 10:
+			forward *= get_parent().score / 10
+		velocity = velocity.move_toward(forward + gravity, delta * move_acceleration)
 	move_and_slide()
 	_update_animation()
 	_update_audio(delta)
@@ -78,3 +86,7 @@ func _update_animation() -> void:
 		animation_player.play('walk')
 	else:
 		animation_player.play('idle')
+
+
+func _on_input_controller_button_pressed() -> void:
+	frozen = false
