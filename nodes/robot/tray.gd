@@ -1,7 +1,7 @@
 class_name Tray
 extends CharacterBody2D
 
-const TRAY_Y := -40
+const TRAY_Y := -72
 
 var _target_left_hand_position := Vector2(-24, TRAY_Y)
 var _target_right_hand_position := Vector2(24, TRAY_Y)

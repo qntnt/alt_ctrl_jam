@@ -4,7 +4,7 @@ extends Node2D
 @export var shoot_speed:float = 1000.0
 
 @onready var spawn_point := $SpawnPoint as Node2D
-@onready var cheese_scene:PackedScene = preload("res://nodes/cheese.tscn")
+@onready var cheese_scene:PackedScene = preload("res://nodes/items/cheese.tscn")
 
 
 func _on_input_controller_button_pressed() -> void:

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://b7m2xplvp6l36"]
 
-[ext_resource type="Script" path="res://nodes/diner.gd" id="1_12kp2"]
+[ext_resource type="Script" path="res://nodes/table/diner.gd" id="1_12kp2"]
 [ext_resource type="Texture2D" uid="uid://cvvfexb0608e0" path="res://sprites/diners/head_back_1.png" id="2_hvucl"]
 [ext_resource type="Texture2D" uid="uid://cddq83ex3xeyk" path="res://sprites/diners/legs_1.png" id="3_3rkof"]
 [ext_resource type="Texture2D" uid="uid://rc0rkdaa5e05" path="res://sprites/diners/torso_1.png" id="4_fud08"]
@@ -22,6 +22,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
 [node name="Diner" type="Area2D"]
 z_index = -100
 collision_layer = 0
+collision_mask = 8
 script = ExtResource("1_12kp2")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

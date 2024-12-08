@@ -1,11 +1,11 @@
 extends Node
 
 var _items = {
-	'cheese': preload("res://nodes/cheese.tscn"),
-	'large_bowl': preload("res://nodes/large_bowl.tscn"),
-	'small_plate': preload('res://nodes/small_plate.tscn'),
-	'large_plate': preload('res://nodes/large_plate.tscn'),
-	'mug': preload('res://nodes/mug.tscn'),
+	'cheese': preload("res://nodes/items/cheese.tscn"),
+	'large_bowl': preload("res://nodes/items/large_bowl.tscn"),
+	'small_plate': preload('res://nodes/items/small_plate.tscn'),
+	'large_plate': preload('res://nodes/items/large_plate.tscn'),
+	'mug': preload('res://nodes/items/mug.tscn'),
 }
 
 func instantiate_item(id: String) -> RigidBody2D:
@@ -14,10 +14,8 @@ func instantiate_item(id: String) -> RigidBody2D:
 	item.can_sleep = false
 	item.collision_layer = 0
 	item.set_collision_layer_value(3, true)
-	item.collision_mask = 0
-	item.set_collision_mask_value(1, true)
-	item.set_collision_mask_value(2, true)
-	item.set_collision_mask_value(3, true)
+	for i in range(1, 32):
+		item.set_collision_mask_value(i, true)
 	return item
 	
 func instantiate_random_item() -> RigidBody2D:

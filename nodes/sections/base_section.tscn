@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3423fnralqub"]
+
+[ext_resource type="Script" path="res://nodes/sections/base_section.gd" id="1_r4klm"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5y1h7"]
+
+[node name="BaseSection" type="Area2D"]
+collision_layer = 16
+collision_mask = 8
+script = ExtResource("1_r4klm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_5y1h7")
+
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

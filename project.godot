@@ -70,6 +70,8 @@ big_button={
 2d_physics/layer_1="default"
 2d_physics/layer_2="bucket"
 2d_physics/layer_3="items"
+2d_physics/layer_4="player_body"
+2d_physics/layer_5="game_section"
 
 [rendering]
 

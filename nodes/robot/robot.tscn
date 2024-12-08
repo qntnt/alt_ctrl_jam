@@ -1,13 +1,13 @@
 [gd_scene load_steps=14 format=3 uid="uid://cxwycg2mqpk4x"]
 
-[ext_resource type="Script" path="res://nodes/robot.gd" id="1_sd8df"]
-[ext_resource type="Script" path="res://nodes/tray.gd" id="3_ke7y6"]
+[ext_resource type="Script" path="res://nodes/robot/robot.gd" id="1_sd8df"]
+[ext_resource type="Script" path="res://nodes/robot/tray.gd" id="3_ke7y6"]
 [ext_resource type="Texture2D" uid="uid://dt7naf5bpnsh1" path="res://sprites/robot/robot_body.png" id="4_0u65a"]
 [ext_resource type="Texture2D" uid="uid://cqm386iyj4u1f" path="res://sprites/robot/tray.png" id="4_behex"]
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
-[ext_resource type="Script" path="res://nodes/input_controller.gd" id="6_780db"]
-[ext_resource type="Script" path="res://nodes/gameplay_area.gd" id="7_nuw8w"]
-[ext_resource type="Script" path="res://nodes/item_throw_controller.gd" id="8_5wxah"]
+[ext_resource type="Script" path="res://nodes/robot/input_controller.gd" id="6_780db"]
+[ext_resource type="Script" path="res://nodes/robot/gameplay_area.gd" id="7_nuw8w"]
+[ext_resource type="Script" path="res://nodes/robot/item_throw_controller.gd" id="8_5wxah"]
 
 [sub_resource type="Animation" id="Animation_c5f1u"]
 length = 0.8
@@ -125,6 +125,7 @@ size = Vector2(94, 4)
 size = Vector2(1024, 512)
 
 [node name="Robot" type="CharacterBody2D"]
+collision_layer = 8
 collision_mask = 3
 floor_stop_on_slope = false
 floor_constant_speed = true
@@ -133,10 +134,11 @@ safe_margin = 0.16
 script = ExtResource("1_sd8df")
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(0, -96)
+position = Vector2(0, -124)
 zoom = Vector2(2, 2)
 
 [node name="Body" type="Node2D" parent="."]
+position = Vector2(0, -28)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Body"]
 libraries = {
@@ -150,7 +152,8 @@ region_enabled = true
 region_rect = Rect2(0, 0, 64, 56)
 
 [node name="Tray" type="CharacterBody2D" parent="."]
-position = Vector2(0, -32)
+position = Vector2(0, -60)
+collision_mask = 9
 motion_mode = 1
 script = ExtResource("3_ke7y6")
 
@@ -163,6 +166,7 @@ texture = ExtResource("4_behex")
 region_rect = Rect2(0, 0, 64, 56)
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+position = Vector2(0, -28)
 polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -31, -13, -31, 0)
 
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
@@ -175,6 +179,7 @@ max_polyphony = 2
 script = ExtResource("6_780db")
 
 [node name="GameplayArea" type="Area2D" parent="."]
+position = Vector2(0, -28)
 script = ExtResource("7_nuw8w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GameplayArea"]
@@ -183,12 +188,16 @@ shape = SubResource("RectangleShape2D_esbbn")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="ItemThrowController" type="Node2D" parent="." node_paths=PackedStringArray("shoot_target")]
+position = Vector2(0, -28)
 script = ExtResource("8_5wxah")
 shoot_target = NodePath("..")
 shoot_speed = 3000.0
 
 [node name="SpawnPoint" type="Node2D" parent="ItemThrowController"]
-position = Vector2(322, -290)
+position = Vector2(0, -290)
+
+[node name="NextSectionSpawnPoint" type="Node2D" parent="."]
+position = Vector2(600, 0)
 
 [connection signal="button_pressed" from="InputController" to="ItemThrowController" method="_on_input_controller_button_pressed"]
 [connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]

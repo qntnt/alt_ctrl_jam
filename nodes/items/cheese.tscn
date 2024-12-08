@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dlfeqmwhyjwnu"]
 
-[ext_resource type="Texture2D" uid="uid://drtrbb1fgkfy8" path="res://sprites/items/cheese.png" id="1_gpje3"]
+[ext_resource type="Texture2D" uid="uid://drtrbb1fgkfy8" path="res://sprites/items/cheese.png" id="1_fbbjb"]
 
 [node name="Cheese" type="RigidBody2D"]
 mass = 0.001
@@ -10,4 +10,4 @@ continuous_cd = 1
 polygon = PackedVector2Array(3, -4, 8, -4, 8, 4, -8, 4, -8, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_gpje3")
+texture = ExtResource("1_fbbjb")

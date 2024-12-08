@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://d2ty70dw7r0c3"]
+[gd_scene load_steps=5 format=3 uid="uid://d2ty70dw7r0c3"]
 
-[ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot.tscn" id="1_bimp3"]
+[ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot/robot.tscn" id="1_bimp3"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_r4g1l"]
 [ext_resource type="Texture2D" uid="uid://dha252vifu5g2" path="res://sprites/floor/floor.png" id="7_cc41g"]
-[ext_resource type="PackedScene" uid="uid://bixdt83d7rfg7" path="res://nodes/table.tscn" id="7_fg6p4"]
-[ext_resource type="PackedScene" uid="uid://cymuj54rtm5ua" path="res://nodes/bucket.tscn" id="9_68ip7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
 
@@ -13,14 +11,13 @@ y_sort_enabled = true
 script = ExtResource("1_r4g1l")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-collision_layer = 3
-collision_mask = 3
+collision_mask = 15
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
 shape = SubResource("WorldBoundaryShape2D_kqn6a")
 
 [node name="Robot" parent="." instance=ExtResource("1_bimp3")]
-position = Vector2(0, -29)
+position = Vector2(0, -2)
 platform_on_leave = 2
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
@@ -32,19 +29,32 @@ offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("7_cc41g")
 
-[node name="Bucket" parent="." instance=ExtResource("9_68ip7")]
-position = Vector2(1530, -4)
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ScoreDisplay" type="Label" parent="."]
-offset_left = 1506.0
-offset_top = 6.0
-offset_right = 1555.0
-offset_bottom = 29.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "Score: "
+
+[node name="Score" type="Label" parent="CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
 text = "0"
-horizontal_alignment = 1
-
-[node name="Table" parent="." instance=ExtResource("7_fg6p4")]
-position = Vector2(210, 0)
-
-[connection signal="item_catch" from="Bucket" to="." method="_on_bucket_item_catch"]
-[connection signal="item_lost" from="Bucket" to="." method="_on_bucket_item_lost"]

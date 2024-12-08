@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cymuj54rtm5ua"]
 
-[ext_resource type="Script" path="res://nodes/bucket.gd" id="1_5ksk7"]
+[ext_resource type="Script" path="res://nodes/bucket/bucket.gd" id="1_5ksk7"]
 [ext_resource type="Texture2D" uid="uid://iapo66hbu0ph" path="res://sprites/bucket/bucket.png" id="2_xyysp"]
 
 [node name="Bucket" type="StaticBody2D"]
@@ -23,6 +23,20 @@ polygon = PackedVector2Array(8, 0, 16, 24, 48, 24, 56, 0)
 [node name="Bucket" type="Sprite2D" parent="."]
 position = Vector2(0, -12)
 texture = ExtResource("2_xyysp")
+
+[node name="CountdownLabel" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -63.0
+offset_right = 20.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 1
 
 [connection signal="body_entered" from="interior" to="." method="_on_interior_body_entered"]
 [connection signal="body_exited" from="interior" to="." method="_on_interior_body_exited"]

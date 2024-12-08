@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://cvmi0uldnsian"]
 
-[ext_resource type="Texture2D" uid="uid://ds6imvwttaurk" path="res://sprites/items/mug.png" id="1_1ok8f"]
+[ext_resource type="Texture2D" uid="uid://ds6imvwttaurk" path="res://sprites/items/mug.png" id="1_4ydsv"]
 
 [node name="Mug" type="RigidBody2D"]
 mass = 0.001
@@ -11,4 +11,4 @@ polygon = PackedVector2Array(8, -4, 8, 4, 4, 8, -8, 8, -8, -8, 4, -8)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -4)
-texture = ExtResource("1_1ok8f")
+texture = ExtResource("1_4ydsv")
