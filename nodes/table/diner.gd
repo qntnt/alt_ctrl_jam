@@ -41,6 +41,8 @@ const legs_textures: Array[Texture2D] = [
 
 @onready var skin_tone := random_color()
 
+var held_item: RigidBody2D
+
 func _ready() -> void:
 	face_sprite.texture = face_textures[face_variant]
 	
@@ -59,13 +61,13 @@ func _ready() -> void:
 	legs_sprite.modulate = random_color()
 
 func spawn_item() -> void:
-	var item: Node2D = null
 	if item_to_spawn:
-		item = item_to_spawn.instantiate()
+		held_item = item_to_spawn.instantiate()
 	else:
-		item = ItemDB.instantiate_random_item()
-	NodeLocator.get_game_node().add_child.call_deferred(item)
-	item.global_position = spawn_target.global_position
+		held_item = ItemDB.instantiate_random_item()
+	NodeLocator.get_game_node().add_child.call_deferred(held_item)
+	held_item.global_position = spawn_target.global_position
+	held_item.freeze = true
 	start_active_animation()
 
 func start_active_animation() -> void:
@@ -73,6 +75,8 @@ func start_active_animation() -> void:
 	head_front_sprite.visible = true
 	face_sprite.visible = true
 	hand_sprite.visible = true
+	await get_tree().create_timer(0.5).timeout
+	held_item.freeze = false
 	await get_tree().create_timer(0.5).timeout
 	head_back_sprite.visible = true
 	head_front_sprite.visible = false
