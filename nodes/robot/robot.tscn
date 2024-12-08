@@ -132,6 +132,7 @@ floor_constant_speed = true
 floor_block_on_wall = false
 safe_margin = 0.16
 script = ExtResource("1_sd8df")
+move_speed = 120.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -124)
@@ -197,7 +198,7 @@ shoot_speed = 3000.0
 position = Vector2(332, -290)
 
 [node name="NextSectionSpawnPoint" type="Node2D" parent="."]
-position = Vector2(600, 0)
+position = Vector2(400, 0)
 
 [connection signal="button_pressed" from="InputController" to="ItemThrowController" method="_on_input_controller_button_pressed"]
 [connection signal="left_hand_input_changed" from="InputController" to="Tray" method="_on_input_controller_left_hand_input_changed"]
