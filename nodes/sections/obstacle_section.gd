@@ -2,10 +2,8 @@ extends BaseSection
 
 @export var num_obstacles := 3
 
-@onready var collision_shape := $CollisionShape2D as CollisionShape2D
-@onready var shape := collision_shape.shape as RectangleShape2D
-
 func _ready() -> void:
+	var shape := collision_shape.shape as RectangleShape2D
 	var start := collision_shape.global_position.x - (shape.size.x/2)
 	var end := start + shape.size.x + 1
 	var step := shape.size.x / (num_obstacles - 1)

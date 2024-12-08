@@ -1,6 +1,5 @@
 extends BaseSection
 
-@onready var collision_shape := $CollisionShape2D as CollisionShape2D
 @onready var shape := collision_shape.shape as RectangleShape2D
 @onready var table := $Table as Table
 

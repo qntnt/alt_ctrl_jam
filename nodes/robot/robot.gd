@@ -15,6 +15,7 @@ const section_transitions := {
 
 @export var move_acceleration := 1000.0
 @export var move_speed := 100.0
+@export var distance_between_sections := 150
 
 @onready var tray := $Tray as Tray
 @onready var music_player := $MusicPlayer as AudioStreamPlayer
@@ -22,19 +23,33 @@ const section_transitions := {
 @onready var animation_player := $Body/AnimationPlayer as AnimationPlayer
 @onready var next_section_spawn_point := $NextSectionSpawnPoint as Node2D
 
+var _current_section: BaseSection
+var _next_section: BaseSection
 var _next_section_id := 0
 
 func _ready() -> void:
+	_spawn_next_section()
+	await get_tree().process_frame
 	_spawn_next_section()
 
 func _spawn_next_section() -> void:
 	var section = sections[_next_section_id].instantiate() as BaseSection
 	NodeLocator.get_game_node().add_child.call_deferred(section)
-	section.global_position.x = next_section_spawn_point.global_position.x
+	if _current_section:
+		var section_shape = _current_section.collision_shape.shape as RectangleShape2D
+		section.global_position.x = _current_section.global_position.x + section_shape.size.x + distance_between_sections
+		_next_section = section
+	else:
+		section.global_position.x = next_section_spawn_point.global_position.x
+		_current_section = section
+		
 	_next_section_id = section_transitions[_next_section_id].pick_random()
 	section.done.connect(_on_section_done)
 
 func _on_section_done() -> void:
+	if(_next_section):
+		_current_section = _next_section
+		_next_section = null
 	_spawn_next_section()
 
 func _physics_process(delta: float) -> void:
