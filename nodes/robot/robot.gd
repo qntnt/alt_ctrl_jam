@@ -28,7 +28,7 @@ func _ready() -> void:
 func _spawn_next_section() -> void:
 	var section = sections[_next_section_id].instantiate() as BaseSection
 	NodeLocator.get_game_node().add_child.call_deferred(section)
-	section.global_position = next_section_spawn_point.global_position
+	section.global_position.x = next_section_spawn_point.global_position.x
 	_next_section_id = section_transitions[_next_section_id].pick_random()
 	section.done.connect(_on_section_done)
 
