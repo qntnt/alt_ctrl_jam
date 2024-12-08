@@ -3,12 +3,14 @@ extends CharacterBody2D
 
 const sections := {
 	0: preload('res://nodes/sections/table_section.tscn'),
-	1: preload('res://nodes/sections/bucket_section.tscn'),
+	1: preload('res://nodes/sections/obstacle_section.tscn'),
+	2: preload('res://nodes/sections/bucket_section.tscn'),
 }
 
 const section_transitions := {
 	0: [1],
-	1: [0],
+	1: [2],
+	2: [0],
 }
 
 @export var move_acceleration := 1000.0
