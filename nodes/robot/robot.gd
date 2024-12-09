@@ -75,11 +75,7 @@ func _forward_collisions() -> void:
 			collider.robot_collision(self)
 
 func _update_audio(delta: float) -> void:
-	music_player.pitch_scale = clampf(
-		move_toward(music_player.pitch_scale, velocity.x / move_speed, delta),
-		0.01,
-		2.0
-	)
+	NodeLocator.get_audio_manager().update_from_robot(self, delta)
 	
 func _update_animation() -> void:
 	if get_real_velocity().length() > 10:
