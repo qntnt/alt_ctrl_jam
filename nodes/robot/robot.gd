@@ -22,7 +22,6 @@ const section_transitions := {
 @onready var gravity: Vector2 = ProjectSettings.get_setting("physics/2d/default_gravity_vector") * ProjectSettings.get_setting("physics/2d/default_gravity")
 @onready var animation_player := $Body/AnimationPlayer as AnimationPlayer
 @onready var next_section_spawn_point := $NextSectionSpawnPoint as Node2D
-@onready var game := NodeLocator.get_game_node()
 
 var _current_section: BaseSection
 var _next_section: BaseSection
@@ -36,8 +35,6 @@ func _ready() -> void:
 	_spawn_next_section()
 
 func _spawn_next_section() -> void:
-	if !game:
-		return
 	var section = sections[_next_section_id].instantiate() as BaseSection
 	NodeLocator.get_game_node().add_child.call_deferred(section)
 	if _current_section:
@@ -78,7 +75,11 @@ func _forward_collisions() -> void:
 			collider.robot_collision(self)
 
 func _update_audio(delta: float) -> void:
-	game.audio_manager.update_from_robot(self, delta)
+	music_player.pitch_scale = clampf(
+		move_toward(music_player.pitch_scale, velocity.x / move_speed, delta),
+		0.01,
+		2.0
+	)
 	
 func _update_animation() -> void:
 	if get_real_velocity().length() > 10:
