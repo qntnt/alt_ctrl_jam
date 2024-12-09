@@ -8,3 +8,4 @@ var score := 0:
 			score_display.text = str(score)
 
 @onready var score_display := $CanvasLayer/MarginContainer/HBoxContainer/VBoxContainer/HBoxContainer/Score as Label
+@onready var audio_manager := $AudioManager as AudioManager

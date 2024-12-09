@@ -11,6 +11,8 @@ var _target_tray_position := Vector2(0, TRAY_Y)
 @export var hand_movement_range := 4
 @export var rotation_speed := 4
 
+@onready var audio_player := $AudioStreamPlayer2D as AudioStreamPlayer2D
+
 func _physics_process(delta: float) -> void:
 	_target_tray_position.y = (_target_left_hand_position.y + _target_right_hand_position.y) / 2.0
 	rotation = move_toward(rotation, _hand_rotation(), rotation_speed * delta)

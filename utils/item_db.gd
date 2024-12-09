@@ -8,14 +8,20 @@ var _items = {
 	'mug': preload('res://nodes/items/mug.tscn'),
 }
 
+var audio_manager: AudioManager:
+	get(): return NodeLocator.get_audio_manager()
+
 func instantiate_item(id: String) -> RigidBody2D:
 	var item = get_item_scene(id).instantiate() as RigidBody2D
 	item.continuous_cd = RigidBody2D.CCD_MODE_CAST_RAY
+	item.contact_monitor = true
+	item.max_contacts_reported = 1
 	item.can_sleep = false
 	item.collision_layer = 0
 	item.set_collision_layer_value(3, true)
 	for i in range(1, 32):
 		item.set_collision_mask_value(i, true)
+	item.body_entered.connect(audio_manager.play_tap)
 	return item
 	
 func instantiate_random_item() -> RigidBody2D:
