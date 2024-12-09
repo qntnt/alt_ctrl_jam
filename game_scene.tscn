@@ -135,7 +135,6 @@ script = ExtResource("6_sf2ak")
 stream = ExtResource("7_oabth")
 volume_db = -12.0
 pitch_scale = 0.01
-autoplay = true
 bus = &"Music"
 
 [node name="TapPlayer" type="AudioStreamPlayer" parent="AudioManager"]
