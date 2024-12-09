@@ -2,7 +2,7 @@ class_name AudioManager
 extends Node2D
 
 @onready var music_player := $MusicPlayer as AudioStreamPlayer
-@onready var tap_player := $TapPlayer as AudioStreamPlayer2D
+@onready var tap_player := $TapPlayer as AudioStreamPlayer
 
 @onready var _master_bus_id := AudioServer.get_bus_index("Master")
 @onready var _music_bus_id := AudioServer.get_bus_index("Music")
@@ -12,14 +12,14 @@ extends Node2D
 @onready var _music_reverb := AudioServer.get_bus_effect(_music_bus_id, 1) as AudioEffectReverb
 @onready var _music_pitch_shift := AudioServer.get_bus_effect(_music_bus_id, 2) as AudioEffectPitchShift
 
-var _should_play_tap := false
-
-func _process(delta: float) -> void:
-	if _should_play_tap == true:
-		tap_player.play()
+var tap_playing := false
 
 func play_tap() -> void:
-	_should_play_tap = true
+	if !tap_playing && !tap_player.playing:
+		tap_player.play()
+		tap_playing = true
+		await get_tree().create_timer(0.2)
+		tap_playing = false
 
 func update_from_robot(robot: Robot, delta: float) -> void:
 	music_player.pitch_scale = clampf(

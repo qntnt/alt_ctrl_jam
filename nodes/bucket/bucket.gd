@@ -1,3 +1,4 @@
+class_name Bucket
 extends StaticBody2D
 
 signal item_catch(item: Node2D)

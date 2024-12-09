@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=3 uid="uid://d2ty70dw7r0c3"]
+[gd_scene load_steps=16 format=3 uid="uid://d2ty70dw7r0c3"]
 
 [ext_resource type="PackedScene" uid="uid://cxwycg2mqpk4x" path="res://nodes/robot/robot.tscn" id="1_bimp3"]
 [ext_resource type="Script" path="res://game_scene.gd" id="1_r4g1l"]
 [ext_resource type="Texture2D" uid="uid://dxrg8yainjyof" path="res://sprites/background/background.png" id="2_oft3s"]
 [ext_resource type="Texture2D" uid="uid://xwc7rtyathv5" path="res://sprites/portraits/portrait1.png" id="3_nng02"]
 [ext_resource type="Texture2D" uid="uid://cqo2kixe012js" path="res://sprites/portraits/ori1.png" id="4_rjrj2"]
+[ext_resource type="Texture2D" uid="uid://dq7kme22jt5pl" path="res://sprites/portraits/jay.png" id="5_l5k0j"]
 [ext_resource type="Script" path="res://audio_manager.gd" id="6_sf2ak"]
 [ext_resource type="Texture2D" uid="uid://dha252vifu5g2" path="res://sprites/floor/floor.png" id="7_cc41g"]
 [ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="7_oabth"]
@@ -16,8 +17,8 @@
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_kqn6a"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_h3qb7"]
-random_pitch = 1.2
-random_volume_offset_db = 1.2
+random_pitch = 1.1
+random_volume_offset_db = 1.15
 streams_count = 4
 stream_0/stream = ExtResource("8_7122c")
 stream_1/stream = ExtResource("9_vjmk3")
@@ -43,15 +44,21 @@ region_rect = Rect2(0, 0, 800, 450)
 [node name="ParallaxPortraits" type="Parallax2D" parent="."]
 z_index = -999
 scroll_scale = Vector2(0.75, 0.75)
-repeat_size = Vector2(3200, 0)
+repeat_size = Vector2(4800, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="ParallaxPortraits"]
+modulate = Color(0.72549, 0.631373, 0.619608, 1)
 position = Vector2(317, -18)
 texture = ExtResource("3_nng02")
 
 [node name="Sprite2D2" type="Sprite2D" parent="ParallaxPortraits"]
+modulate = Color(0.72633, 0.631834, 0.618038, 1)
 position = Vector2(1911, -18)
 texture = ExtResource("4_rjrj2")
+
+[node name="Sprite2D3" type="Sprite2D" parent="ParallaxPortraits"]
+position = Vector2(3508, -40)
+texture = ExtResource("5_l5k0j")
 
 [node name="Title" type="Parallax2D" parent="."]
 z_index = -999
@@ -135,11 +142,11 @@ script = ExtResource("6_sf2ak")
 stream = ExtResource("7_oabth")
 volume_db = -12.0
 pitch_scale = 0.01
+autoplay = true
 bus = &"Music"
 
 [node name="TapPlayer" type="AudioStreamPlayer" parent="AudioManager"]
 stream = SubResource("AudioStreamRandomizer_h3qb7")
-max_polyphony = 5
 bus = &"SFX"
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
