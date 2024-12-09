@@ -4,6 +4,7 @@
 
 [node name="Cheese" type="RigidBody2D"]
 continuous_cd = 1
+contact_monitor = true
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(3, -4, 8, -4, 8, 4, -8, 4, -8, 2)
