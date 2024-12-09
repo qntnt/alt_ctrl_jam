@@ -9,6 +9,6 @@ extends Node2D
 
 func _on_input_controller_button_pressed() -> void:
 	var item := ItemDB.instantiate_item('cheese')
-	item.position = spawn_point.global_position
+	item.position = spawn_point.global_position + (Vector2.RIGHT * randi_range(-500, 500))
 	item.linear_velocity = shoot_speed * item.global_position.direction_to(shoot_target.global_position)
 	NodeLocator.get_game_node().add_child(item)

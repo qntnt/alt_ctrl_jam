@@ -199,7 +199,7 @@ shoot_speed = 3000.0
 position = Vector2(1, -305)
 
 [node name="TargetPoint" type="Node2D" parent="ItemThrowController"]
-position = Vector2(-1, -55)
+position = Vector2(1, 0)
 
 [node name="NextSectionSpawnPoint" type="Node2D" parent="."]
 position = Vector2(400, 0)
