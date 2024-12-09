@@ -1,10 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://cxwycg2mqpk4x"]
+[gd_scene load_steps=13 format=3 uid="uid://cxwycg2mqpk4x"]
 
 [ext_resource type="Script" path="res://nodes/robot/robot.gd" id="1_sd8df"]
 [ext_resource type="Script" path="res://nodes/robot/tray.gd" id="3_ke7y6"]
 [ext_resource type="Texture2D" uid="uid://dt7naf5bpnsh1" path="res://sprites/robot/robot_body.png" id="4_0u65a"]
 [ext_resource type="Texture2D" uid="uid://cqm386iyj4u1f" path="res://sprites/robot/tray.png" id="4_behex"]
-[ext_resource type="AudioStream" uid="uid://of18vwprr3eh" path="res://music/Labatro_shortened.wav" id="5_2oyu0"]
 [ext_resource type="Script" path="res://nodes/robot/input_controller.gd" id="6_780db"]
 [ext_resource type="Script" path="res://nodes/robot/gameplay_area.gd" id="7_nuw8w"]
 [ext_resource type="Script" path="res://nodes/robot/item_throw_controller.gd" id="8_5wxah"]
@@ -169,13 +168,6 @@ region_rect = Rect2(0, 0, 64, 56)
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 position = Vector2(0, -28)
 polygon = PackedVector2Array(0, 28, 30, 0, 30, -15, 17, -25, 0, -27, -18, -24, -31, -13, -31, 0)
-
-[node name="MusicPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_2oyu0")
-volume_db = -12.0
-pitch_scale = 0.01
-autoplay = true
-max_polyphony = 2
 
 [node name="InputController" type="Node" parent="."]
 script = ExtResource("6_780db")
