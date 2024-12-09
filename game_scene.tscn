@@ -144,3 +144,4 @@ max_polyphony = 5
 bus = &"SFX"
 
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
+[connection signal="finished" from="AudioManager/MusicPlayer" to="AudioManager" method="_on_music_player_finished"]

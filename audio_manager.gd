@@ -27,3 +27,6 @@ func update_from_robot(robot: Robot, delta: float) -> void:
 		0.7937,
 		1.3
 	)
+
+func _on_music_player_finished() -> void:
+	music_player.play()
